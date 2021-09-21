@@ -1,0 +1,1 @@
+This is an example plugin that shows you how to use the 'gpdf-bulk-generator-redux-store' Gravity Forms Javascript hook to listen for [Gravity PDF Bulk Generator plugin](https://gravitypdf.com/shop/bulk-generator-add-on/) events. You might need to use this if you want to trigger an API call after the zip file has been generated.
