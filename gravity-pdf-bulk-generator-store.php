@@ -5,7 +5,7 @@
  * Description:     Sample plugin showing how to listen to the Bulk Generator store on the Gravity Forms Entry List page
  * Author:          Gravity PDF
  * Author URI:      https://gravitypdf.com
- * Version:         0.1
+ * Version:         0.2
  */
 
 /**
@@ -17,6 +17,12 @@
 
 /* Load a Javascript file on the Gravity Forms Entry List page */
 add_action( 'admin_init', function() {
+	
+	/* Don't do anything if Gravity Forms and the Bulk Generator plugin isn't active */
+	if ( ! class_exists( 'GFForms' ) || ! class_exists( '\GFPDF\Plugins\BulkGenerator\Bootstrap' ) ) {
+		return;
+	}
+	
 	if ( \GFForms::get_page() === 'entry_list' ) {
 		add_action( 'admin_enqueue_scripts', function() {
 			wp_enqueue_script( 'gravitypdf_bulk_generator_listener', plugin_dir_url( __FILE__ ) . '/gravitypdf.js', [], false, true );
